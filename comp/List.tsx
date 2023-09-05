@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function List({name, dispatch, tasks, id}) {
+export default function List({name, dispatch, children, id}) {
 
   const [editing, setEditing] = React.useState(false);
 
@@ -44,15 +44,8 @@ export default function List({name, dispatch, tasks, id}) {
       </div>
 
       <div className="list-body">
-        {tasks.length ? tasks :
-
-          <button
-            className="font-bold w-full min-h-60"
-            onClick={() => dispatch({type: 'list.delete', id})}  
-          >
-            Delete List
-          </button>
-          
+        {
+          children
         }
       </div>
 
