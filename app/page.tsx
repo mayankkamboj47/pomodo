@@ -72,6 +72,7 @@ export default function App() {
           dispatch({ type: "list.reorder", order: newOrder })
         }
         className="flex gap-5"
+        group="shared"
       >
         {state.listOrder.map((listId) => {
           const list = state.lists[listId];
@@ -82,6 +83,7 @@ export default function App() {
                 dispatch({ type: "task.reorder", order: newOrder, listId })
               }
               className="list-body"
+              group="tasks"
             >
               {list.taskOrder.map((taskId) => {
                 let task = state.tasks[taskId];
