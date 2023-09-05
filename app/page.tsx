@@ -3,6 +3,7 @@ import { useReducer } from 'react'
 import List from '../comp/List'
 import Task from '../comp/Task'
 import Clock from '../comp/Clock'
+import { ReactSortable } from 'react-sortablejs'
 
 
 export default function App() {
@@ -62,6 +63,11 @@ export default function App() {
         <div className="app flex flex-wrap gap-5">
       <Clock endTime={state.endTime} type={state.clockType} status={state.clockStatus}
        dispatch={dispatch} />
+      <ReactSortable
+        list={state.listOrder}
+        setList={(newOrder) => dispatch({type: 'list.reorder', order : newOrder})}
+        className="flex gap-5"
+      >
       {state.listOrder.map((listId) => {
         const list = state.lists[listId];
         return (<List key={listId} name={list.name} dispatch={dispatch}  id={listId}
@@ -75,6 +81,7 @@ export default function App() {
                   })
                 }/>)
       })}
+      </ReactSortable>
       <div className="add-list bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => dispatch({ type: 'list.add' })}>+</div>
     </div>
 
@@ -151,6 +158,10 @@ function reducer(state: any, action: any) {
 
     case 'list.rename':
       newState.lists[action.id].name = action.name;
+    break;
+
+    case 'list.reorder':
+      newState.listOrder = action.order;
     break;
   }
   return newState;
