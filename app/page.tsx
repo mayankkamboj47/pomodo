@@ -158,4 +158,5 @@ function initialState() {
   };
 }
 
+// turn off ssr, so that we can use localStorage without next throwing errors
 export default dynamic(() => Promise.resolve(App), { ssr: false });
