@@ -28,10 +28,12 @@ export default function reducer(state: any, action: any) {
       case "beep" :
         // play audio
         new Audio('/beep.mp3').play();
+        
         if (state.clockType === "break") {
           newState.clockType = "work";
           newState.endTime = Math.floor(new Date().getTime() / 1000) +  25;
         } else {
+          newState.tasks[newState.selectedTask].points += 1;
           newState.clockType = "break";
           newState.endTime = Math.floor(new Date().getTime() / 1000) +  5;
         }
