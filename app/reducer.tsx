@@ -18,10 +18,10 @@ export default function reducer(state: any, action: any) {
       newState.clockStatus = "stopped";
       if (state.clockType === "break") {
         newState.clockType = "work";
-        newState.endTime = Math.floor(new Date().getTime() / 1000) +  25;
+        newState.endTime = Math.floor(new Date().getTime() / 1000) +  25 * 60;
       } else {
         newState.clockType = "break";
-        newState.endTime = Math.floor(new Date().getTime() / 1000) +  5;
+        newState.endTime = Math.floor(new Date().getTime() / 1000) +  5 * 60;
       }
       break;
 
@@ -31,12 +31,12 @@ export default function reducer(state: any, action: any) {
         
         if (state.clockType === "break") {
           newState.clockType = "work";
-          newState.endTime = Math.floor(new Date().getTime() / 1000) +  25;
+          newState.endTime = Math.floor(new Date().getTime() / 1000) +  25 * 60;
         } else {
           if(newState.tasks[newState.selectedTask])
             newState.tasks[newState.selectedTask].points += 1;
           newState.clockType = "break";
-          newState.endTime = Math.floor(new Date().getTime() / 1000) +  5;
+          newState.endTime = Math.floor(new Date().getTime() / 1000) +  5 * 60;
         }
         break;
       

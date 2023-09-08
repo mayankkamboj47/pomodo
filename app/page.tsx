@@ -106,8 +106,8 @@ function initialState() {
     return JSON.parse(localStorage.getItem('state') || '');
   }
   return {
-    endTime: Math.floor(new Date().getTime() / 1000) + 60 * 60,
-    clockType: "break",
+    endTime: Math.floor(new Date().getTime() / 1000) + 25 * 60,
+    clockType: "work",
     clockStatus: "running",
     listOrder: [2, 1, 3, 0],
     lists: {
