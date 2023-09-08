@@ -7,8 +7,8 @@ const Task = ({ value, id, points, dispatch, selected }) => {
 
   return (
     <div
-      style={{transform : `rotate(${random(id) * 10 - 5}deg)`}}
-      className={`${randomColor(id)} shadow-lg p-4 mx-2 ${selected ? "border-blue-500 border-2" : ""}`}
+      style={{transform : `rotate(${random(id) * 4 - 2}deg)`}}
+      className={`${randomColor(id)} shadow-lg p-4 mx-2 ${selected ? "border-blue-500 border-2" : ""} mb-2`}
       onClick={() => dispatch({ type: "task.select", taskId: id })}
     >
       <div className="flex justify-between items-center">
