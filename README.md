@@ -6,4 +6,5 @@ Todo :
 4. Add localStorage load and store, or use indexed DB           DONE
 5. Make sure that the tilt doesn't correct itself when you click the thing. Diagnose where it comes from
 6. Test the components                                  Todo
+    a. UserEvent is not working, but fireEvent is. Why?        toDO (after this all the tests are good as done)
 7. Make the tilt slightly more subtle                   DONE

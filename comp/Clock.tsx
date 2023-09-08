@@ -22,7 +22,7 @@ viewBox="0 0 16 16"
 
 const Clock = ({ time, type, status, dispatch }: any) => {
   return (
-    <div className="absolute" onClick={() => dispatch({ type: "clock.type" })}>
+    <div className="clock absolute" onClick={() => dispatch({ type: "clock.type" })} data-testid="clock">
       <div className="w-40 h-40 shadow-2xl rounded-full bg-blue-50"></div>
 
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex-column justify-center align-center text-center w-40">
@@ -37,7 +37,7 @@ const Clock = ({ time, type, status, dispatch }: any) => {
             e.stopPropagation();
           }}
         >
-          {status === "running" ? pauseSvg : playSvg}
+          {status === "running" ? (<>{pauseSvg}<span className="sr-only">Pause</span></>) : (<>{playSvg}<span className="sr-only">Play</span></>)}
         </button>
       </div>
     </div>
