@@ -33,7 +33,8 @@ export default function reducer(state: any, action: any) {
           newState.clockType = "work";
           newState.endTime = Math.floor(new Date().getTime() / 1000) +  25;
         } else {
-          newState.tasks[newState.selectedTask].points += 1;
+          if(newState.tasks[newState.selectedTask])
+            newState.tasks[newState.selectedTask].points += 1;
           newState.clockType = "break";
           newState.endTime = Math.floor(new Date().getTime() / 1000) +  5;
         }
