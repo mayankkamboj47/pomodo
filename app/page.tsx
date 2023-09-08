@@ -94,7 +94,7 @@ export default function App() {
                 setList={(newOrder) =>
                   dispatch({ type: "task.reorder", order: newOrder, listId })
                 }
-                className="list-body"
+                style={{ paddingBottom: "5rem" }}
                 group="tasks"
               >
                 {list.taskOrder.map((taskId) => {
