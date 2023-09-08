@@ -13,12 +13,21 @@ function App() {
   useEffect(()=>{
     localStorage.setItem('state', JSON.stringify(state));
   }, [state]);
+
+  useEffect(()=>{
+    const interval = setInterval(()=>{
+      if(state.clockStatus === 'running') dispatch({type: 'clock.tick'});
+      else if(state.clockStatus === 'stopped') clearInterval(interval);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [state.clockStatus, state.clockType]);
+  
   return (
     <>
       <link rel="preload" as="audio" href="/beep.mp3" fetchPriority="low" />
       <div className="app flex flex-wrap gap-5 justify-center bg-gray-100 min-h-screen">
         <Clock
-          endTime={state.endTime}
+          time={state.time}
           type={state.clockType}
           status={state.clockStatus}
           dispatch={dispatch}
@@ -106,7 +115,7 @@ function initialState() {
     return JSON.parse(localStorage.getItem('state') || '');
   }
   return {
-    endTime: Math.floor(new Date().getTime() / 1000) + 25 * 60,
+    time : 60 * 25,
     clockType: "work",
     clockStatus: "running",
     listOrder: [2, 1, 3, 0],
