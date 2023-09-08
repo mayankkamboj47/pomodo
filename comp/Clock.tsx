@@ -10,13 +10,14 @@ const Clock = ({endTime, type, status, dispatch} : any) => {
     if(status !== 'running') return;
     
     const interval = setInterval(() => {
-      setClockTime(Math.floor(endTime - Date.now()/1000));
+      let newTime = Math.floor(endTime - Date.now()/1000);
+      setClockTime(newTime);
+      if (newTime <= 0) {
+        dispatch({ type: 'beep' });
+        clearInterval(interval);
+      }  
     }, 1000);
 
-    if (clockTime <= 0) {
-      dispatch({ type: 'beep' });
-      clearInterval(interval);
-    }
 
     return () => clearInterval(interval);
   }, [endTime, status, type]);

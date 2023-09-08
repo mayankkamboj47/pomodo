@@ -4,6 +4,7 @@ import List from "../comp/List";
 import Task from "../comp/Task";
 import Clock from "../comp/Clock";
 import { ReactSortable } from "react-sortablejs";
+import Head from "next/head";
 
 export default function App() {
   const [state, dispatch] = useReducer(reducer, {
@@ -59,6 +60,8 @@ export default function App() {
   });
 
   return (
+    <>
+    <link rel="preload" as="audio" href="/beep.mp3"  fetchPriority="low"/>
     <div className="app flex flex-wrap gap-5 justify-center bg-gray-100 h-screen">
       <Clock
         endTime={state.endTime}
@@ -133,6 +136,7 @@ export default function App() {
         </button>
       </div>
     </div>
+    </>
   );
 }
 
@@ -153,15 +157,27 @@ function reducer(state: any, action: any) {
       break;
 
     case "clock.type":
+    newState.clockStatus = "stopped";
+    if (state.clockType === "break") {
+      newState.clockType = "work";
+      newState.endTime = Math.floor(new Date().getTime() / 1000) +  25;
+    } else {
+      newState.clockType = "break";
+      newState.endTime = Math.floor(new Date().getTime() / 1000) +  5;
+    }
+    break;
+    case "beep" :
+      // play audio
+      new Audio('/beep.mp3').play();
       if (state.clockType === "break") {
         newState.clockType = "work";
-        newState.endTime = Math.floor(new Date().getTime() / 1000) + 60 * 60;
+        newState.endTime = Math.floor(new Date().getTime() / 1000) +  25;
       } else {
         newState.clockType = "break";
-        newState.endTime = Math.floor(new Date().getTime() / 1000) + 60 * 5;
+        newState.endTime = Math.floor(new Date().getTime() / 1000) +  5;
       }
-      newState.clockStatus = "stopped";
       break;
+    
 
     case "task.delete":
       delete newState.tasks[action.taskId];
