@@ -1,9 +1,11 @@
-export default function reducer(state: any, action: any) {
+import { AppState, actionType } from "./types";
+
+export default function reducer(state: AppState, action: actionType) {
   let newState = { ...state };
   switch (action.type) {
     case "clock.stop-resume":
       if (state.clockStatus === "running") {
-        newState.clockStatus = "stopped ";
+        newState.clockStatus = "stopped";
       } else {
         newState.clockStatus = "running";
       }
@@ -28,7 +30,7 @@ export default function reducer(state: any, action: any) {
           newState.clockType = "work";
           newState.time = 25 * 60;
         } else {
-          if (newState.tasks[newState.selectedTask])
+          if (newState.selectedTask && newState.tasks[newState.selectedTask])
             newState.tasks[newState.selectedTask].points += 1;
           newState.clockType = "break";
           newState.time = 5 * 60;

@@ -1,6 +1,15 @@
+import { AppState, dispatchType } from "@/app/types";
 import React from "react";
 
-const Task = ({ value, id, points, dispatch, selected } : any) => {
+interface propTypes {
+    value : AppState['tasks'][number]['value'];
+    id : number;
+    points : AppState['tasks'][number]['points'];
+    dispatch : dispatchType,
+    selected : boolean
+}
+
+const Task = ({ value, id, points, dispatch, selected } : propTypes) => {
   const [taskValue, setTaskValue] = React.useState(value);
   const [editing, setEditing] = React.useState(false);
   const inputRef = React.useRef<HTMLInputElement>(null);

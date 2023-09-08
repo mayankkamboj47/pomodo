@@ -6,6 +6,7 @@ import Clock from "../comp/Clock";
 import { ReactSortable } from "react-sortablejs";
 import reducer from "./reducer";
 import dynamic from "next/dynamic";
+import { AppState } from "./types";
 
 function App() {
   const [state, dispatch] = useReducer(reducer, null, initialState);
@@ -21,7 +22,7 @@ function App() {
     }, 1000);
     return () => clearInterval(interval);
   }, [state.clockStatus, state.clockType]);
-  
+
   return (
     <>
       <link rel="preload" as="audio" href="/beep.mp3" fetchPriority="low" />
@@ -34,7 +35,7 @@ function App() {
         />
         <div className="flex mt-40 w-full overflow-auto gap-5">
           <ReactSortable
-            list={state.listOrder}
+            list={state.listOrder as any[]}
             setList={(newOrder) =>
               dispatch({ type: "list.reorder", order: newOrder })
             }
@@ -110,7 +111,7 @@ function App() {
   );
 }
 
-function initialState() {
+function initialState() : AppState {
   if(localStorage.getItem('state')){
     return JSON.parse(localStorage.getItem('state') || '');
   }
