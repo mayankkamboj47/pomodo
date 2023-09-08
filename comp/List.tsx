@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function List({name, dispatch, children, id}) {
+export default function List({name, dispatch, children, id} : any) {
   const inputRef = React.useRef<HTMLInputElement>(null);
   const [editing, setEditing] = React.useState(false);
 

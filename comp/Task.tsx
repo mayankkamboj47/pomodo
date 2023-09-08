@@ -1,6 +1,6 @@
 import React from "react";
 
-const Task = ({ value, id, points, dispatch, selected }) => {
+const Task = ({ value, id, points, dispatch, selected } : any) => {
   const [taskValue, setTaskValue] = React.useState(value);
   const [editing, setEditing] = React.useState(false);
   const inputRef = React.useRef<HTMLInputElement>(null);
@@ -48,12 +48,12 @@ const Task = ({ value, id, points, dispatch, selected }) => {
 // a pseudorandom number generator, that is seeded with a number
 // and returns a function that returns a number between 0 and 1
 // every time it is called
-const random = (seed) => {
+const random = (seed : number) => {
   let x = Math.sin(seed) * 10000;
     return x - Math.floor(x);
 };
 
-const randomColor = (seed) =>{
+const randomColor = (seed : number) =>{
     let colors = ['bg-red-200', 'bg-yellow-200', 'bg-green-200', 'bg-blue-200', 'bg-indigo-200', 'bg-purple-200', 'bg-pink-200'];
     return colors[Math.floor(random(seed) * colors.length)];
 }
