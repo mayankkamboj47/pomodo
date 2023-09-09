@@ -8,3 +8,6 @@ Todo :
 6. Test the components                                  Todo
     a. UserEvent is not working, but fireEvent is. Why?        toDO (after this all the tests are good as done)
 7. Make the tilt slightly more subtle                   DONE
+8. Bug : When you add the lists fast enough, or the tasks fast enough, two with the same id are added, and that really
+   messes things up. Is there a way to avoid this ?
+        One strategy : choose the time added at as id.                  FIXED YAY
