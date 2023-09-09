@@ -56,10 +56,11 @@ export default function reducer(state: AppState, action: actionType) : AppState 
       break;
 
     case "task.add":
-      const newTaskId =
+      const newTaskId = Object.keys(newState.tasks).length !== 0 ?
         Math.max(
           ...Object.keys(newState.tasks).map((taskId: any) => Number(taskId))
-        ) + 1;
+        ) + 1 :
+        0;
       newState.tasks[newTaskId] = {
         value: "New Task",
         points: 0,
@@ -77,10 +78,10 @@ export default function reducer(state: AppState, action: actionType) : AppState 
       break;
 
     case "list.add":
-      const newListId =
+      const newListId = state.listOrder.length ?
         Math.max(
-          ...Object.keys(newState.lists).map((listId: any) => Number(listId))
-        ) + 1;
+        ...state.listOrder
+        ) + 1 : 0;
       newState.lists[newListId] = {
         name: "New List",
         taskOrder: [],
