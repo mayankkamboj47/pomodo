@@ -1,19 +1,32 @@
 "use client";
-import { useEffect, useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 import List from "../comp/List";
 import Task from "../comp/Task";
 import Clock from "../comp/Clock";
 import { ReactSortable } from "react-sortablejs";
 import reducer from "./reducer";
 import dynamic from "next/dynamic";
-import { initialState } from "./utils";
+import { initialState, shellState } from "./utils";
 
 function App() {
-  const [state, dispatch] = useReducer(reducer, null, initialState);
+  const [state, dispatch] = useReducer(reducer, null, shellState);
 
   useEffect(()=>{
-    localStorage.setItem('state', JSON.stringify(state));
+    if(state.listOrder.length === 0) {        // appshell state
+      if(localStorage.getItem('state')){
+        let newState = JSON.parse(localStorage.getItem('state') || '');
+        dispatch({type: 'init', state: newState});
+      }
+      else {
+        dispatch({type: 'init', state: initialState()});
+      }
+    }
+    else {
+      localStorage.setItem('state', JSON.stringify(state));
+    }
   }, [state]);
+
+  
 
   useEffect(()=>{
     if(state.clockStatus === 'running') dispatch({type : 'clock.tick'});
@@ -40,7 +53,7 @@ function App() {
             setList={(newOrder) =>
               dispatch({ type: "list.reorder", order: newOrder })
             }
-            className="flex gap-5"
+            className={"flex gap-5 w-full flex-wrap"}
             group="shared"
           >
             {state.listOrder.map((listId) => {
@@ -101,7 +114,7 @@ function App() {
             })}
           </ReactSortable>
           <button
-            className="add-list h-10 bg-black text-white font-bold py-2 px-4 rounded"
+            className="add-list h-10 bg-black text-white font-bold py-2 px-4 rounded mr-10"
             onClick={() => dispatch({ type: "list.add" })}
           >
             +
@@ -111,5 +124,4 @@ function App() {
     </>
   );
 }
-// turn off ssr, so that we can use localStorage without next throwing errors
-export default dynamic(() => Promise.resolve(App), { ssr: false });
+export default App;

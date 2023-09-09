@@ -27,9 +27,6 @@ export type actionType = { type: string;} & { [key: string]: any} & { [key: numb
 export type dispatchType = (action: actionType) => void;
 
 export function initialState() : AppState {
-  if(localStorage.getItem('state')){
-    return JSON.parse(localStorage.getItem('state') || '');
-  }
   return {
     time : 60 * 25,
     clockType: "work",
@@ -79,6 +76,18 @@ export function initialState() : AppState {
         points: 6,
       },
     },
+    selectedTask: null,
+  };
+}
+
+export function shellState() : AppState {
+  return {
+    time : 60 * 25,
+    clockType: "work",
+    clockStatus: "running",
+    listOrder: [],
+    lists: {},
+    tasks: {},
     selectedTask: null,
   };
 }
