@@ -15,7 +15,7 @@ export default function List({ name, dispatch, children, id }: propTypes) {
 
   return (
     <div
-      className="bg-white shadow-xl rounded-lg p-4 w-64"
+      className="bg-white shadow-xl rounded-lg p-4 w-64 cursor-move"
       style={{ minHeight: "25rem" }}
     >
       <div className="flex items-center justify-between mb-4">
@@ -32,7 +32,7 @@ export default function List({ name, dispatch, children, id }: propTypes) {
           />
         ) : (
           <h1
-            className="text-xl font-medium cursor-pointer w-full"
+            className="text-xl font-medium cursor-text w-full"
             onClick={() => {
               setEditing(true);
               setTimeout(() => inputRef.current?.focus(), 0);
