@@ -1,4 +1,4 @@
-import { AppState, dispatchType } from "@/app/types";
+import { AppState, dispatchType } from "@/app/utils";
 import React from "react";
 
 interface propTypes {

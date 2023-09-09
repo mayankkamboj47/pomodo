@@ -1,7 +1,7 @@
-import { AppState, actionType } from "./types";
+import { AppState, actionType } from "./utils";
 
-export default function reducer(state: AppState, action: actionType) {
-  let newState = { ...state };
+export default function reducer(state: AppState, action: actionType) : AppState {
+  let newState : AppState = { ...state };
   switch (action.type) {
     case "clock.stop-resume":
       if (state.clockStatus === "running") {
