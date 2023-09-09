@@ -5,6 +5,11 @@ Todo :
 3. Make everything look pretty                                  DONE
 4. Add localStorage load and store, or use indexed DB           DONE
 5. Make sure that the tilt doesn't correct itself when you click the thing. Diagnose where it comes from
+    More information : 
+        So when changing the layout, I added minwidth and maxwidth to the lists, alongside a flex-grow to
+        fit the thing while being in contraints. Now, when I select a task, that list grows wide to its
+        maximum width for some reason. Examining using inspect element, I see that the source code doesn't
+        stir. This means that its all redrawing logic, because we've overcomplicated things. 
 6. Test the components                                  Todo
     a. UserEvent is not working, but fireEvent is. Why?        toDO (after this all the tests are good as done)
 7. Make the tilt slightly more subtle                   DONE

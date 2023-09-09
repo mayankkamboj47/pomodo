@@ -47,13 +47,13 @@ function App() {
           status={state.clockStatus}
           dispatch={dispatch}
         />
-        <div className="flex mt-40 w-full overflow-auto gap-5">
+        <div className="flex mt-44 w-full overflow-auto gap-5 justify-center">
           <ReactSortable
             list={state.listOrder as any[]}
             setList={(newOrder) =>
               dispatch({ type: "list.reorder", order: newOrder })
             }
-            className={"flex gap-5 w-full flex-wrap"}
+            className={"flex gap-5 w-full flex-wrap justify-center"}
             group="shared"
           >
             {state.listOrder.map((listId) => {
@@ -114,7 +114,7 @@ function App() {
             })}
           </ReactSortable>
           <button
-            className="add-list h-10 bg-black text-white font-bold py-2 px-4 rounded mr-10"
+            className="add-list h-10 bg-black text-white font-bold py-2 px-4 rounded ml-4"
             onClick={() => dispatch({ type: "list.add" })}
           >
             +

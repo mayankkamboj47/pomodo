@@ -15,13 +15,13 @@ export default function List({ name, dispatch, children, id }: propTypes) {
 
   return (
     <div
-      className="bg-white shadow-xl rounded-lg p-4 w-64 cursor-move"
-      style={{ minHeight: "25rem" }}
+      className="bg-white shadow-xl rounded-lg p-4 cursor-move w-64"
+      style={{ minHeight: "25rem"}}
     >
       <div className="flex items-center justify-between mb-4">
         {editing ? (
           <input
-            className="text-xl font-medium w-full outline-none"
+            className="text-xl w-5/12 font-medium outline-none"
             value={listName}
             onChange={(e) => setListName(e.target.value)}
             ref={inputRef}
@@ -43,10 +43,10 @@ export default function List({ name, dispatch, children, id }: propTypes) {
         )}
 
         <button
-          className="py-2 px-4 rounded w-8 h-8"
+          className="py-2 px-4 rounded"
           onClick={() => dispatch({ type: "task.add", id })}
         >
-          +
+          <span className="sr-only">Add</span>+
         </button>
       </div>
 
