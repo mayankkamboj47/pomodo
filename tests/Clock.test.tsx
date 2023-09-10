@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Clock from '../comp/Clock'; 
 
@@ -6,14 +6,14 @@ describe('Clock', () => {
 
   it('renders time in mm:ss format', () => {
     render(<Clock time={75} />);
-    expect(screen.getByText('1:15')).toBeInTheDocument();
+    expect(screen.getByText('01:15')).toBeInTheDocument();
   });
 
   it('dispatches type change on click', () => {
     const dispatch = jest.fn();
     render(<Clock dispatch={dispatch} time={75} type={'break'} />);
 
-    userEvent.click(screen.getByTestId('clock'));
+    fireEvent.click(screen.getByTestId('clock'));
     expect(dispatch).toHaveBeenCalled();
   });
 
@@ -21,7 +21,7 @@ describe('Clock', () => {
     const dispatch = jest.fn();
     render(<Clock dispatch={dispatch} time={75} type={'break'} />);
 
-    userEvent.click(screen.getByText('break'));
+    fireEvent.click(screen.getByText('break'));
     expect(dispatch).toHaveBeenCalled();
   });
 
