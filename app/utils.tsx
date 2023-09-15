@@ -31,7 +31,7 @@ export function initialState() : AppState {
     time : 60 * 25,
     clockType: "work",
     clockStatus: "running",
-    listOrder: [2, 1, 3, 0],
+    listOrder: [2, 1, 3, 0, 4],
     lists: {
       0: {
         name: "To Do",
@@ -49,6 +49,10 @@ export function initialState() : AppState {
         name: "Blocked",
         taskOrder: [5],
       },
+      4 : {
+        name : "Empty", 
+        taskOrder: []
+      }
     },
     tasks: {
       0: {
