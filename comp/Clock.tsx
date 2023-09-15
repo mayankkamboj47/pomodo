@@ -1,4 +1,4 @@
-import { AppState, dispatchType } from "@/app/utils";
+import { AppState, dispatchType } from "@/utils/types";
 
 
 interface propTypes {

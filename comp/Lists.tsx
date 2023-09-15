@@ -1,7 +1,7 @@
 import { ReactSortable } from "react-sortablejs";
 import List from "./List";
 import Tasks from "./Tasks";
-import { AppState, dispatchType } from "@/app/utils";
+import { AppState, dispatchType } from "@/utils/types";
 
 export default function Lists({ state, dispatch } : { state : AppState, dispatch : dispatchType  }) {
   return (

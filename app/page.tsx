@@ -1,11 +1,9 @@
 "use client";
-import { useEffect, useReducer, useState } from "react";
-import List from "../comp/List";
-import Task from "../comp/Task";
+import { useEffect, useReducer } from "react";
 import Clock from "../comp/Clock";
-import { ReactSortable } from "react-sortablejs";
 import reducer from "./reducer";
-import { dispatchType, initialState, shellState } from "./utils";
+import { dispatchType } from "@/utils/types";
+import { shellState, initialState } from "@/utils/state";
 import Lists from "@/comp/Lists";
 
 function App() {

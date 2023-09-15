@@ -1,4 +1,4 @@
-import { AppState, actionType } from "./utils";
+import { AppState, actionType } from "../utils/types";
 
 export default function reducer(state: AppState, action: actionType) : AppState {
   let newState : AppState = { ...state };

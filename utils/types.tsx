@@ -22,13 +22,15 @@ export interface AppState {
   selectedTask: null | number;
 }
 
-export type actionType = { type: string;} & { [key: string]: any} & { [key: number]: any};
+export type actionType = { type: string } & { [key: string]: any } & {
+  [key: number]: any;
+};
 
 export type dispatchType = (action: actionType) => void;
 
-export function initialState() : AppState {
+export function initialState(): AppState {
   return {
-    time : 60 * 25,
+    time: 60 * 25,
     clockType: "work",
     clockStatus: "running",
     listOrder: [2, 1, 3, 0, 4],
@@ -49,10 +51,10 @@ export function initialState() : AppState {
         name: "Blocked",
         taskOrder: [5],
       },
-      4 : {
-        name : "Empty", 
-        taskOrder: []
-      }
+      4: {
+        name: "Empty",
+        taskOrder: [],
+      },
     },
     tasks: {
       0: {
@@ -84,9 +86,9 @@ export function initialState() : AppState {
   };
 }
 
-export function shellState() : AppState {
+export function shellState(): AppState {
   return {
-    time : 60 * 25,
+    time: 60 * 25,
     clockType: "work",
     clockStatus: "running",
     listOrder: [],
