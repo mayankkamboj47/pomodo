@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useReducer } from "react";
 import Clock from "../comp/Clock";
-import reducer from "./reducer";
+import reducer from "@/utils/reducer";
 import { dispatchType } from "@/utils/types";
 import { shellState, initialState } from "@/utils/state";
 import Lists from "@/comp/Lists";
