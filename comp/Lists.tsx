@@ -12,6 +12,9 @@ export default function Lists({ state, dispatch } : { state : AppState, dispatch
       }
       className={"flex gap-5 w-full flex-wrap justify-center"}
       group="shared"
+      forceFallback={true}
+      fallbackOnBody={true}
+      fallbackTolerance={0}
     >
       {state.listOrder.map((listId) => {
         const list = state.lists[listId];

@@ -10,6 +10,10 @@ export default function Tasks({ state, dispatch, listId } : { state : AppState, 
         }
         style={{ paddingBottom: "5rem" }}
         group="tasks"
+        draggable=".task"
+        forceFallback={true}
+        fallbackOnBody={true}
+        fallbackTolerance={0}
       >
         {state.lists[listId].taskOrder.map((taskId: number) => {
           let task = state.tasks[taskId];

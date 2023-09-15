@@ -17,7 +17,7 @@ const Task = ({ value, id, points, dispatch, selected } : propTypes) => {
   return (
     <div
       style={{transform : `rotate(${random(id) * 4 - 2}deg)`}}
-      className={`${randomColor(id)} shadow-lg p-4 mx-2 cursor-pointer ${selected ? "border-blue-500 border-2" : ""} mb-2`}
+      className={`task ${randomColor(id)} shadow-lg p-4 mx-2 cursor-pointer ${selected ? "border-blue-500 border-2" : ""} mb-2`}
       onClick={() => dispatch({ type: "task.select", taskId: id })}
       data-testid={id}
     >
