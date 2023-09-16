@@ -1,5 +1,6 @@
 import { AppState, dispatchType } from "@/utils/types";
 import React from "react";
+import Markdown from "markdown-to-jsx";
 
 interface propTypes {
   value: AppState["tasks"][number]["value"];
@@ -33,7 +34,8 @@ const Task = ({ value, id, points, dispatch, selected }: propTypes) => {
       <div className="flex justify-between content-start">
         {editing ? (
           <textarea
-            className="w-full focus:outline-none bg-transparent h-max"
+            className="w-full focus:outline-none bg-transparent"
+            style={{'height' : (taskValue.split('\n').length+1)*1.5+'rem'}}
             value={taskValue}
             ref={inputRef}
             onChange={(e) => setTaskValue(e.target.value)}
@@ -44,14 +46,14 @@ const Task = ({ value, id, points, dispatch, selected }: propTypes) => {
           ></textarea>
         ) : (
           <div
-            className="cursor-text mb-2"
+            className="cursor-text mb-2 markdown-view"
             data-testid="task-value"
             onClick={() => {
               setEditing(true);
               setTimeout(() => inputRef.current?.focus(), 0);
             }}
           >
-            {value}
+            <Markdown>{value}</Markdown>
           </div>
         )}
       </div>
