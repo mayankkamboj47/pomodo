@@ -77,7 +77,7 @@ export function shellState(): AppState {
 }
 
 const notes = [`# We support _Markdown_!`, 
-`__Click__ this item and see for yourself !`, 
+`__Double click__ this item to edit !`, 
 `You get __points__ for spending time on tasks!
 1. For each 1 minute, you get 🍬
 1. For each 5 minutes, you get 🍭

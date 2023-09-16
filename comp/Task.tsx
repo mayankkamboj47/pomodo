@@ -48,7 +48,7 @@ const Task = ({ value, id, points, dispatch, selected }: propTypes) => {
           <div
             className="cursor-text mb-2 markdown-view"
             data-testid="task-value"
-            onClick={() => {
+            onDoubleClick={() => {
               setEditing(true);
               setTimeout(() => inputRef.current?.focus(), 0);
             }}
