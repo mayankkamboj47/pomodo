@@ -20,9 +20,11 @@ export default function reducer(state: AppState, action: actionType) : AppState 
       if (state.clockType === "break") {
         newState.clockType = "work";
         newState.time = 25 * 60;
+        newState.totalMins = 25;
       } else {
         newState.clockType = "break";
         newState.time = 5 * 60;
+        newState.totalMins = 5;
       }
       break;
 
@@ -33,11 +35,13 @@ export default function reducer(state: AppState, action: actionType) : AppState 
         if (state.clockType === "break") {
           newState.clockType = "work";
           newState.time = 25 * 60;
+          newState.totalMins = 25;
         } else {
           if (newState.selectedTask && newState.tasks[newState.selectedTask])
-            newState.tasks[newState.selectedTask].points += 1;
+            newState.tasks[newState.selectedTask].points += state.totalMins;
           newState.clockType = "break";
           newState.time = 5 * 60;
+          newState.totalMins = 5;
         }
       }
       break;

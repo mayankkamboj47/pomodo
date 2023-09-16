@@ -3,6 +3,7 @@ import { AppState } from "./types";
 export function initialState(): AppState {
     return {
       time: 60 * 25,
+      totalMins : 25,
       clockType: "work",
       clockStatus: "running",
       listOrder: [2, 1, 3, 0, 4],
@@ -61,6 +62,7 @@ export function initialState(): AppState {
   export function shellState(): AppState {
     return {
       time: 60 * 25,
+      totalMins : 25,
       clockType: "work",
       clockStatus: "running",
       listOrder: [],

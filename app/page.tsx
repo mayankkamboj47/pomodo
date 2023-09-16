@@ -29,7 +29,7 @@ function App() {
     const interval = setInterval(() => {
       if (state.clockStatus === "running") dispatch({ type: "clock.tick" });
       else if (state.clockStatus === "stopped") clearInterval(interval);
-    }, 1000);
+    }, 1);
     return () => clearInterval(interval);
   }, [state.clockStatus, state.clockType]);
 
