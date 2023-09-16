@@ -11,6 +11,8 @@ export default function Tasks({ state, dispatch, listId } : { state : AppState, 
         style={{ paddingBottom: "5rem" }}
         group="tasks"
         draggable=".task"
+        animation={150}
+        easing="linear"
         forceFallback={true}
         fallbackOnBody={true}
         fallbackTolerance={0}

@@ -15,6 +15,8 @@ export default function Lists({ state, dispatch } : { state : AppState, dispatch
       forceFallback={true}
       fallbackOnBody={true}
       fallbackTolerance={0}
+      animation={150}
+      easing="linear"
     >
       {state.listOrder.map((listId) => {
         const list = state.lists[listId];
