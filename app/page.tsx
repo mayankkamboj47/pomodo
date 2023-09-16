@@ -5,6 +5,7 @@ import reducer from "@/utils/reducer";
 import { dispatchType } from "@/utils/types";
 import { shellState, initialState } from "@/utils/state";
 import Lists from "@/comp/Lists";
+import Settings from "@/comp/Settings";
 require('dotenv').config();
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
           <Lists state={state} dispatch={dispatch} />
           <AddList dispatch={dispatch} />/
         </ListsContainer>
+        <Settings />
       </AppContainer>
     </>
   );
