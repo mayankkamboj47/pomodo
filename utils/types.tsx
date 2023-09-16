@@ -18,7 +18,7 @@ export interface AppState {
     [id: number]: ListType;
   };
   tasks: {
-    [id: number]: Task;
+    [id: number]: TaskType;
   };
   selectedTask: null | number;
 }
