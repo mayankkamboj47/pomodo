@@ -11,8 +11,8 @@ export default function reducer(state: AppState, action: actionType) : AppState 
       if (state.clockStatus === "running") {
         newState.clockStatus = "stopped";
       } else {
-        if(state.selectedTask === null) throw new Error('Cannot start clock without a selected task');
-        newState.clockStatus = "running";
+        if(state.selectedTask === null) alert('Cannot start clock without a selected task');
+        else newState.clockStatus = "running";
       }
       break;
 
