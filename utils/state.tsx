@@ -22,7 +22,7 @@ export function initialState(): AppState {
       },
       3: {
         name: "Blocked",
-        taskOrder: [5],
+        taskOrder: [5, 6],
       },
       4: {
         name: "Empty",
@@ -58,6 +58,10 @@ export function initialState(): AppState {
           "The black '+' button adds a list, and the + button inside the list adds a task",
         points: 6,
       },
+      6: {
+        value:"Check this project on [Github](https://www.github.com/mayankkamboj47/pomodo)",
+        points: 0
+      }
     },
     selectedTask: null,
   };

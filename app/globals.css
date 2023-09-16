@@ -37,3 +37,7 @@
 .markdown-view ol {
     @apply list-decimal list-inside;
 }
+
+.markdown-view a {
+    @apply text-blue-900 underline;
+}
