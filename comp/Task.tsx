@@ -51,11 +51,24 @@ const Task = ({ value, id, points, dispatch, selected } : propTypes) => {
         </button>
       </div>
 
-      <div className="text-gray-600 text-sm mt-2">{points} points</div>
+      <Points points={points} />
     </div>
   );
 };
 
+export function Points({points} : {points : number}) {   
+  type valueEmojiPair = [number, string];
+  let values : valueEmojiPair[] = [[25, "🍩"], [10, "🍫"], [5, "🍭"], [1, "🍬"]]
+  let emojis : {[emoji : string] : number} = {};
+  for (let [value, emoji] of values) {
+    for (let i = 0; i < Math.floor(points / value); i++) {
+      emojis[emoji] = (emojis[emoji] || 0) + 1;
+    }
+    points = points % value;
+  }
+  let emojiString = values.map(([_, emoji]) => emojis[emoji] ? <span className="emoji">{emoji}x{emojis[emoji]}</span> : ' ');
+  return <span className="emojis">{emojiString}</span>
+}
 // a pseudorandom number generator, that is seeded with a number
 // and returns a function that returns a number between 0 and 1
 // every time it is called
