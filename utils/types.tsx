@@ -15,7 +15,7 @@ export interface AppState {
   clockStatus: "running" | "stopped";
   listOrder: number[];
   lists: {
-    [id: number]: List;
+    [id: number]: ListType;
   };
   tasks: {
     [id: number]: Task;
