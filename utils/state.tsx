@@ -5,7 +5,7 @@ export function initialState(): AppState {
       time: 60 * 25,
       totalMins : 25,
       clockType: "work",
-      clockStatus: "running",
+      clockStatus: "stopped",
       listOrder: [2, 1, 3, 0, 4],
       lists: {
         0: {
@@ -64,7 +64,7 @@ export function initialState(): AppState {
       time: 60 * 25,
       totalMins : 25,
       clockType: "work",
-      clockStatus: "running",
+      clockStatus: "stopped",
       listOrder: [],
       lists: {},
       tasks: {},

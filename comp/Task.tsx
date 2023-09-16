@@ -61,9 +61,7 @@ export function Points({points} : {points : number}) {
   let values : valueEmojiPair[] = [[25, "🍩"], [10, "🍫"], [5, "🍭"], [1, "🍬"]]
   let emojis : {[emoji : string] : number} = {};
   for (let [value, emoji] of values) {
-    for (let i = 0; i < Math.floor(points / value); i++) {
-      emojis[emoji] = (emojis[emoji] || 0) + 1;
-    }
+    emojis[emoji] = Math.floor(points / value);
     points = points % value;
   }
   let emojiString = values.map(([_, emoji]) => emojis[emoji] ? <span className="emoji">{emoji}x{emojis[emoji]}</span> : ' ');

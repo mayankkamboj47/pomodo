@@ -39,6 +39,7 @@ function App() {
       <AppContainer>
         <Clock
           time={state.time}
+          totalMins = {state.totalMins}
           type={state.clockType}
           status={state.clockStatus}
           dispatch={dispatch}

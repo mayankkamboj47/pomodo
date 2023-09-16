@@ -11,27 +11,23 @@ export default function reducer(state: AppState, action: actionType) : AppState 
       if (state.clockStatus === "running") {
         newState.clockStatus = "stopped";
       } else {
+        if(state.selectedTask === null) throw new Error('Cannot start clock without a selected task');
         newState.clockStatus = "running";
       }
       break;
 
-    case "clock.type":
-      newState.clockStatus = "stopped";
-      if (state.clockType === "break") {
-        newState.clockType = "work";
-        newState.time = 25 * 60;
-        newState.totalMins = 25;
-      } else {
-        newState.clockType = "break";
-        newState.time = 5 * 60;
-        newState.totalMins = 5;
-      }
-      break;
+    case "clock.setTime":
+      if(newState.clockStatus !== 'stopped') throw new Error('Cannot change time while clock is running');
+      if(typeof action.time !== 'number') throw new Error('Time must be a number');
+      newState.time = action.time * 60;
+      newState.totalMins = action.time;
+    break;
 
     case "clock.tick":
       newState.time--;
       if (newState.time === 0) {
         new Audio("/beep.mp3").play();
+        newState.clockStatus = "stopped";
         if (state.clockType === "break") {
           newState.clockType = "work";
           newState.time = 25 * 60;

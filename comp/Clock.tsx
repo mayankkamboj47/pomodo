@@ -5,20 +5,21 @@ interface propTypes {
     time: AppState["time"];
     type: AppState["clockType"];
     status: AppState["clockStatus"];
+    totalMins : AppState["totalMins"];
     dispatch:dispatchType
 }
 
-const Clock = ({ time, type, status, dispatch } : propTypes) => {
+const Clock = ({ time, type, status, totalMins, dispatch } : propTypes) => {
   const onPausePlay = (e : React.MouseEvent<HTMLButtonElement>)=>{
     dispatch({ type : 'clock.stop-resume'});
     e.stopPropagation();
   }
   return (
-    <div className="clock absolute" onClick={() => dispatch({ type: "clock.type" })} data-testid="clock">
+    <div className="clock absolute" data-testid="clock">
       <div className="w-40 h-40 shadow-2xl rounded-full bg-blue-50"></div>
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex-column justify-center align-center text-center w-40">
         <div className="m-0 p-0">{type}</div>
-        <div className="text-2xl font-bold">{clocktimeToString(time)}</div>
+        <TimeDisplay time={time} totalMins={totalMins} dispatch={dispatch} />
         <button className="" onClick={onPausePlay}>
           {status === "running" ? 
                 (<>{pauseSvg}<span className="sr-only">Pause</span></>) :
@@ -30,6 +31,17 @@ const Clock = ({ time, type, status, dispatch } : propTypes) => {
   );
 };
 
+function TimeDisplay({ time, totalMins, dispatch } : { time : number, totalMins : number, dispatch : dispatchType }) {
+  return (
+    time===totalMins*60 ? (
+      <div className="">
+        <input type="number" className="w-11 text-2xl bg-blue-50" value={totalMins} onChange={(e)=>dispatch({type : 'clock.setTime', time : Number(e.target.value)})} />
+        minutes
+      </div>
+    ) : 
+    <div className="text-2xl font-bold">{clocktimeToString(time)}</div>
+  );
+}
 function clocktimeToString(clockTime: number) {
   let minutes = Math.floor(clockTime / 60);
   let seconds = clockTime % 60;
