@@ -35,7 +35,7 @@ const Task = ({ value, id, points, dispatch, selected }: propTypes) => {
         {editing ? (
           <textarea
             className="w-full focus:outline-none bg-transparent"
-            style={{'height' : (taskValue.split('\n').length+1)*1.5+'rem'}}
+            style={{'height' : Math.max((taskValue.split('\n').length+1)*1.5, 10) + 'rem'}}
             value={taskValue}
             ref={inputRef}
             onChange={(e) => setTaskValue(e.target.value)}
@@ -78,7 +78,7 @@ export function Points({ points }: { points: number }) {
   }
   let emojiString = values.map(([_, emoji]) =>
     emojis[emoji] ? (
-      <span className="emoji p-0.5 rounded-md" style={{background:'#ffffff77'}}>
+      <span className="emoji p-0.5 rounded-md" style={{background:'#ffffff77'}} key={emoji}>
         {emoji}
         <span className="emoji-count">{emojis[emoji]}</span>
       </span>
