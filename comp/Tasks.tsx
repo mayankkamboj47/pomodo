@@ -1,11 +1,11 @@
-import { ReactSortable } from "react-sortablejs";
+import { ItemInterface, ReactSortable } from "react-sortablejs";
 import Task from "./Task";
 import { AppState, dispatchType } from "../utils/types";
 
 export default function Tasks({ state, dispatch, listId } : { state : AppState, dispatch : dispatchType, listId : number }) {
     return (
       <ReactSortable
-        list={state.lists[listId].taskOrder}
+        list={state.lists[listId].taskOrder as unknown as ItemInterface[]}
         setList={(newOrder) =>
           dispatch({ type: "task.reorder", order: newOrder, listId })
         }
