@@ -5,6 +5,7 @@ import reducer from "@/utils/reducer";
 import { dispatchType } from "@/utils/types";
 import { shellState, initialState } from "@/utils/state";
 import Lists from "@/comp/Lists";
+require('dotenv').config();
 
 function App() {
   const [state, dispatch] = useReducer(reducer, null, shellState);
@@ -29,7 +30,7 @@ function App() {
     const interval = setInterval(() => {
       if (state.clockStatus === "running") dispatch({ type: "clock.tick" });
       else if (state.clockStatus === "stopped") clearInterval(interval);
-    }, 1);
+    }, process.env.envtype==='demo' ? 1 : 1000);
     return () => clearInterval(interval);
   }, [state.clockStatus, state.clockType]);
 
