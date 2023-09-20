@@ -21,7 +21,7 @@ export default function List({ name, dispatch, children, id }: propTypes) {
       <div className="flex items-center justify-between mb-4">
         {editing ? (
           <input
-            className="text-xl w-5/12 font-medium outline-none"
+            className="text-xl w-full font-medium outline-none"
             value={listName}
             onChange={(e) => setListName(e.target.value)}
             ref={inputRef}
