@@ -46,12 +46,13 @@ const Task = ({ value, id, points, dispatch, selected }: propTypes) => {
           ></textarea>
         ) : (
           <div
-            className="cursor-text mb-2 markdown-view"
+            className="cursor-text mb-2 markdown-view w-full"
             data-testid="task-value"
             onDoubleClick={() => {
               setEditing(true);
               setTimeout(() => inputRef.current?.focus(), 0);
             }}
+            style={{minHeight : '1.5rem'}}
           >
             <Markdown>{value}</Markdown>
           </div>

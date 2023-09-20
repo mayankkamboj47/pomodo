@@ -33,6 +33,7 @@ export default function List({ name, dispatch, children, id }: propTypes) {
         ) : (
           <h1
             className="text-xl font-medium cursor-text w-full"
+            style={{minHeight : '1.5rem'}}
             onClick={() => {
               setEditing(true);
               setTimeout(() => inputRef.current?.focus(), 0);
