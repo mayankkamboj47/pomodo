@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+textarea {
+    resize: none;
+}
+
 .markdown-view h1{
     @apply text-2xl font-bold;
 }
