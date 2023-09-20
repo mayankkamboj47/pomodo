@@ -40,12 +40,12 @@ export function initialState(): AppState {
       },
       2: {
         value:
-          "You can drag and drop the tasks between lists, or swap the lists themselves!",
+          "You can drag and drop the tasks and lists",
         points: 3,
       },
       3: {
         value:
-          "1. Click on a task\n" + "1. Its borders will turn blue to tell you that you are now working on it.\n"+
+          "1. Click on a task. It will get selected\n" +
           "1. Pick how long you would like to work using the clock, and hit start\n",
         points: 4,
       },
@@ -59,7 +59,7 @@ export function initialState(): AppState {
         points: 6,
       },
       6: {
-        value:"Check this project on [Github](https://www.github.com/mayankkamboj47/pomodo)",
+        value:"Code for this project is on [Github](https://www.github.com/mayankkamboj47/pomodo)",
         points: 0
       }
     },
@@ -80,11 +80,11 @@ export function shellState(): AppState {
   };
 }
 
-const notes = [`# We support _Markdown_!`, 
-`__Double click__ this item to edit !`, 
+const notes = [`# You can add _Markdown_ to your tasks`, 
+`__Double click__ this item to edit`, 
 `You get __points__ for spending time on tasks!
 1. For each 1 minute, you get 🍬
 1. For each 5 minutes, you get 🍭
 1. For each 15 minutes, you get 🍫
-1. For each 30 minutes, you get 🍰
+1. For each 25 minutes, you get 🍩
 `];
