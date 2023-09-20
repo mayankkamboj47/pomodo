@@ -1,27 +1,37 @@
 import { AppState, actionType } from "./types";
 
-export default function reducer(state: AppState, action: actionType) : AppState {
-  let newState : AppState = { ...state };
+export default function reducer(state: AppState, action: actionType): AppState {
+  let newState: AppState = { ...state };
   switch (action.type) {
     case "init":
       return action.state;
-    break;
-    
+      break;
+      
+    case "clock.reset":
+      newState.clockStatus = "stopped";
+      newState.clockType = "work";
+      newState.time = 25 * 60;
+      newState.totalMins = 25;
+      break;
+
     case "clock.stop-resume":
       if (state.clockStatus === "running") {
         newState.clockStatus = "stopped";
       } else {
-        if(state.selectedTask === null) alert('Cannot start clock without a selected task');
+        if (state.selectedTask === null)
+          alert("Cannot start clock without a selected task");
         else newState.clockStatus = "running";
       }
       break;
 
     case "clock.setTime":
-      if(newState.clockStatus !== 'stopped') throw new Error('Cannot change time while clock is running');
-      if(typeof action.time !== 'number') throw new Error('Time must be a number');
+      if (newState.clockStatus !== "stopped")
+        throw new Error("Cannot change time while clock is running");
+      if (typeof action.time !== "number")
+        throw new Error("Time must be a number");
       newState.time = action.time * 60;
       newState.totalMins = action.time;
-    break;
+      break;
 
     case "clock.tick":
       newState.time--;
@@ -74,7 +84,7 @@ export default function reducer(state: AppState, action: actionType) : AppState 
       break;
 
     case "list.add":
-      const newListId : number = new Date().getTime();
+      const newListId: number = new Date().getTime();
       newState.lists[newListId] = {
         name: "New List",
         taskOrder: [],

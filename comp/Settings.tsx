@@ -1,8 +1,10 @@
+import { dispatchType } from "@/utils/types";
 import { useState } from "react";
 
-export default function Settings() {
+export default function Settings(props : {dispatch : dispatchType}) {
   return <Drawer>
     <ul className="flex-column w-64 py-3">
+        <li className="flex justify-around w-full"><label>Reset clock <Button onClick={()=>props.dispatch({type : "clock.reset"})}>Reset</Button></label></li>
         <li className="flex justify-around w-full"><label>Clear app data <ResetButton /></label></li>
     </ul>
   </Drawer>
@@ -36,6 +38,14 @@ function reset(){
     window.location.reload();
 }
 
+function resetClock(){
+
+}
+
 function ResetButton(){
-    return <button onClick={reset} className="py-2 px-4 bg-blue-100 hover:bg-blue-200 rounded-lg">Reset</button>
+    return <Button onClick={reset}>Reset</Button>
+}
+
+function Button(props : {onClick? : ()=>void, children : any}){
+    return <button onClick={props.onClick} className="py-2 px-4 bg-blue-100 hover:bg-blue-200 rounded-lg">{props.children}</button>
 }

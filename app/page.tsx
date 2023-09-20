@@ -50,7 +50,7 @@ function App() {
           <Lists state={state} dispatch={dispatch} />
           <AddList dispatch={dispatch} />/
         </ListsContainer>
-        <Settings />
+        <Settings dispatch={dispatch} />
       </AppContainer>
     </>
   );

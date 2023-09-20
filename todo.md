@@ -19,4 +19,15 @@ Todo :
    messes things up. Is there a way to avoid this ?
         One strategy : choose the time added at as id.                  FIXED YAY
 9. On refreshing, something causes the elapsed time to change by itself.  FIXED, but in the wrong time
-10. Put up an error boundary to display the error message as a modal or such
+10. Put up an error boundary to display the error message as a modal or such        DONE
+11. Make the list editing option wider
+12. Make sure that if someone leaves the list or task empty, you can still edit it
+13. Add a way of resetting the clock - it is annoying to not be able to do that. 
+14. Make things factually correct - what's the 30 minute cake ? And just plain and factual, do not shout with
+exclamations. 
+15. Either make the dragging disappear when resizing textarea, or make the textarea unresizable.
+16. Make the reset button pause the thing if it is running, or wait, maybe we can just change localStorage
+to a false thing
+
+Strategy : 
+14, 11, 12, 16,13, 15
