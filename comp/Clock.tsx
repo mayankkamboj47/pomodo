@@ -48,8 +48,10 @@ function TimeDisplay({
 }) {
   return time === totalMins * 60 ? (
     <div className="">
+      <label className="sr-only" htmlFor="clockTime">Time in minutes</label>
       <input
         type="number"
+        name="clockTime"
         className="w-11 text-2xl bg-blue-50"
         value={totalMins}
         min={1}

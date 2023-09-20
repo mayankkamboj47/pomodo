@@ -30,4 +30,12 @@ exclamations.
 to a false thing
 
 Strategy : 
-14, 11, 12, 16,13, 15
+14, 11, 12, 16, 13, 15
+All done
+
+17. Space out the point emojis a little
+18. Add proper padding to the settings menu
+19. Remove the '/'
+20. Properly check that typescript is thoroughly used in the project
+21. Add thorough unit tests
+22. Add thorough integration tests in a separate folder, but do not provide puppeteer as a dependency - it is too big
