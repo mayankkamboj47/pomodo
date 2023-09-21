@@ -30,7 +30,11 @@ function App() {
     if (state.clockStatus === "running") dispatch({ type: "clock.tick" });
     const interval = setInterval(() => {
       if (state.clockStatus === "running") dispatch({ type: "clock.tick" });
-      else if (state.clockStatus === "stopped") clearInterval(interval);
+      else clearInterval(interval);
+      if(state.clockStatus === "resetting_app") {
+        localStorage.clear();
+        window.location.reload();
+      }
     }, process.env.envtype==='demo' ? 1 : 1000);
     return () => clearInterval(interval);
   }, [state.clockStatus, state.clockType]);

@@ -12,7 +12,7 @@ export interface AppState {
   time: number;
   totalMins: number;
   clockType: "work" | "break";
-  clockStatus: "running" | "stopped";
+  clockStatus: "running" | "stopped" | "resetting_app";
   listOrder: number[];
   lists: {
     [id: number]: ListType;

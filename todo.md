@@ -36,6 +36,8 @@ All done
 17. Space out the point emojis a little
 18. Add proper padding to the settings menu
 19. Remove the '/'
+19.1 Add labels for inputs left and right
 20. Properly check that typescript is thoroughly used in the project
 21. Add thorough unit tests
 22. Add thorough integration tests in a separate folder, but do not provide puppeteer as a dependency - it is too big
+23. Make sure the app resets even when the clock is running

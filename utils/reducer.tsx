@@ -6,7 +6,11 @@ export default function reducer(state: AppState, action: actionType): AppState {
     case "init":
       return action.state;
       break;
-      
+    
+    case "app.reset" : 
+      newState.clockStatus = "resetting_app"
+    break;
+    
     case "clock.reset":
       newState.clockStatus = "stopped";
       newState.clockType = "work";
@@ -26,7 +30,7 @@ export default function reducer(state: AppState, action: actionType): AppState {
 
     case "clock.setTime":
       if (newState.clockStatus !== "stopped")
-        throw new Error("Cannot change time while clock is running");
+        throw new Error("Cannot change time unless clock is stopped");
       if (typeof action.time !== "number")
         throw new Error("Time must be a number");
       newState.time = action.time * 60;
