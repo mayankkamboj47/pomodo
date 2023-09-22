@@ -17,9 +17,9 @@ const Clock = ({ time, type, status, totalMins, dispatch }: propTypes) => {
     <div className="clock absolute" data-testid="clock">
       <div className="w-40 h-40 shadow-2xl rounded-full bg-blue-50"></div>
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex-column justify-center align-center text-center w-40">
-        <div className="m-0 p-0">{type}</div>
+        <div className="m-0 p-0" data-testid="clock-status">{type}</div>
         <TimeDisplay time={time} totalMins={totalMins} dispatch={dispatch} />
-        <button className="" onClick={onPausePlay}>
+        <button className="" onClick={onPausePlay} data-testid="pauseplay">
           {status === "running" ? (
             <>
               {pauseSvg}
