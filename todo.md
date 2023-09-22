@@ -33,11 +33,12 @@ Strategy :
 14, 11, 12, 16, 13, 15
 All done
 
-17. Space out the point emojis a little
-18. Add proper padding to the settings menu
-19. Remove the '/'
-19.1 Add labels for inputs left and right
-20. Properly check that typescript is thoroughly used in the project
+17. Space out the point emojis a little                 DONE
+18. Add proper padding to the settings menu             DONE
+19. Remove the '/'                                      DONE
+19.1 Add labels for inputs left and right               DONE
+20. Properly check that typescript is thoroughly used in the project            DONE
 21. Add thorough unit tests
 22. Add thorough integration tests in a separate folder, but do not provide puppeteer as a dependency - it is too big
-23. Make sure the app resets even when the clock is running
+23. Make sure the app resets even when the clock is running             DONE
+24. On mobile, clicking and double clicking doesn't work - so it is impossible to edit the tasks. Surprisingly, drag and drop works perfectly. 
