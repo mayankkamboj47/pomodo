@@ -3,9 +3,9 @@ import { useState } from "react";
 
 export default function Settings(props : {dispatch : dispatchType}) {
   return <Drawer>
-    <ul className="w-64 p-3 grid gap-1">
+    <ul className="w-64 p-3 grid gap-1" data-testid="settingsMenu">
         <li><label className="flex items-center">Reset clock <Button onClick={()=>props.dispatch({type : "clock.reset"})}>Reset</Button></label></li>
-        <li><label className="flex items-center">Clear app data <ResetButton dispatch={props.dispatch} /></label></li>
+        <li><label className="flex items-center">Clear app data <ClearButton dispatch={props.dispatch} /></label></li>
     </ul>
   </Drawer>
 }
@@ -19,7 +19,7 @@ function Drawer(props: { children: any }) {
       >
         {props.children}
       </div>
-      <button onClick={() => setOpen(!open)} className="h-10 bg-gray-100 p-2">
+      <button onClick={() => setOpen(!open)} className="h-10 bg-gray-100 p-2" data-testid="settingsButton">
         <span className="sr-only">Settings</span>
         <SettingsSvg />
       </button>
@@ -33,11 +33,11 @@ function SettingsSvg(){
   </svg>);
 }
 
-function ResetButton(props : {dispatch : dispatchType}){
+function ClearButton(props : {dispatch : dispatchType}){
     return <Button onClick={()=>{
         if(confirm('Warning : All your app data will go away'))
             props.dispatch({type : "app.reset"});
-    }}>Reset</Button>
+    }}>Clear</Button>
 }
 
 function Button(props : {onClick? : ()=>void, children : any}){
