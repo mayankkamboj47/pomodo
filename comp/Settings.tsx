@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function Settings(props : {dispatch : dispatchType}) {
   return <Drawer>
-    <ul className="w-64 py-3 grid gap-1">
+    <ul className="w-64 p-3 grid gap-1">
         <li><label className="flex items-center">Reset clock <Button onClick={()=>props.dispatch({type : "clock.reset"})}>Reset</Button></label></li>
         <li><label className="flex items-center">Clear app data <ResetButton dispatch={props.dispatch} /></label></li>
     </ul>
