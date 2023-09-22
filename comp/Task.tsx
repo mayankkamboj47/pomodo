@@ -32,11 +32,13 @@ const Task = ({ value, id, points, dispatch, selected }: propTypes) => {
         &times;
       </button>
       <div className="flex justify-between content-start">
+        <label htmlFor="task_edit" className="sr-only">Edit task</label>
         {editing ? (
           <textarea
             className="w-full focus:outline-none bg-transparent"
             style={{'height' : Math.max((taskValue.split('\n').length+1)*1.5, 10) + 'rem'}}
             value={taskValue}
+            name="task_edit"
             ref={inputRef}
             onChange={(e) => setTaskValue(e.target.value)}
             onBlur={() => {

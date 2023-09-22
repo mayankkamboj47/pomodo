@@ -19,10 +19,12 @@ export default function List({ name, dispatch, children, id }: propTypes) {
       style={{ minHeight: "25rem"}}
     >
       <div className="flex items-center justify-between mb-4">
+        <label className="sr-only" htmlFor="listname_edit">List name</label>
         {editing ? (
           <input
             className="text-xl w-full font-medium outline-none"
             value={listName}
+            name="listname_edit"
             onChange={(e) => setListName(e.target.value)}
             ref={inputRef}
             onBlur={(e) => {
