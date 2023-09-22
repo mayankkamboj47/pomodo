@@ -79,7 +79,7 @@ export function Points({ points }: { points: number }) {
   }
   let emojiString = values.map(([_, emoji]) =>
     emojis[emoji] ? (
-      <span className="emoji p-0.5 rounded-md" style={{background:'#ffffff77'}} key={emoji}>
+      <span className="emoji p-0.5 rounded-md mr-0.5" style={{background:'#ffffff77'}} key={emoji}>
         {emoji}
         <span className="emoji-count">{emojis[emoji]}</span>
       </span>
