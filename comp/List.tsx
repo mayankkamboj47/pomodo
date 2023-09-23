@@ -15,8 +15,9 @@ export default function List({ name, dispatch, children, id }: propTypes) {
 
   return (
     <div
-      className="bg-white shadow-xl rounded-lg p-4 cursor-move w-64"
+      className="list bg-white shadow-xl rounded-lg p-4 cursor-move w-64"
       style={{ minHeight: "25rem"}}
+      data-testid={'list'+id}
     >
       <div className="flex items-center justify-between mb-4">
         <label className="sr-only" htmlFor="listname_edit">List name</label>
@@ -25,6 +26,7 @@ export default function List({ name, dispatch, children, id }: propTypes) {
             className="text-xl w-full font-medium outline-none"
             value={listName}
             name="listname_edit"
+            data-testid="listname-edit"
             onChange={(e) => setListName(e.target.value)}
             ref={inputRef}
             onBlur={(e) => {
@@ -35,6 +37,7 @@ export default function List({ name, dispatch, children, id }: propTypes) {
         ) : (
           <h1
             className="text-xl font-medium cursor-text w-full"
+            data-testid="list-name"
             style={{minHeight : '1.5rem'}}
             onClick={() => {
               setEditing(true);
@@ -47,6 +50,7 @@ export default function List({ name, dispatch, children, id }: propTypes) {
 
         <button
           className="py-2 px-4 rounded"
+          data-testid="add-task"
           onClick={() => dispatch({ type: "task.add", id })}
         >
           <span className="sr-only">Add</span>+

@@ -20,13 +20,14 @@ const Task = ({ value, id, points, dispatch, selected }: propTypes) => {
       className={`task relative ${randomColor(
         id
       )} shadow-lg p-4 cursor-pointer ${
-        selected ? "border-blue-500 border-2" : ""
+        selected ? "border-blue-500 border-2 selected" : ""
       } mb-2 rounded-lg`}
       onClick={() => dispatch({ type: "task.select", taskId: id })}
-      data-testid={id}
+      data-testid={'task'+id}
     >
       <button
         className="text-red-500 hover:text-red-600 font-bold text-xl absolute top-1 right-2.5"
+        data-testid="task-delete"
         onClick={() => dispatch({ type: "task.delete", taskId: id })}
       >
         &times;
@@ -39,6 +40,7 @@ const Task = ({ value, id, points, dispatch, selected }: propTypes) => {
             style={{'height' : Math.max((taskValue.split('\n').length+1)*1.5, 10) + 'rem'}}
             value={taskValue}
             name="task_edit"
+            data-testid="task-edit"
             ref={inputRef}
             onChange={(e) => setTaskValue(e.target.value)}
             onBlur={() => {

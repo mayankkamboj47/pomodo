@@ -83,6 +83,7 @@ function AddList(props : { dispatch : dispatchType}) {
   return (
     <button
       className="add-list h-10 bg-black text-white font-bold py-2 px-4 rounded ml-4"
+      data-testid="add-list"
       onClick={() => props.dispatch({ type: "list.add" })}
     >
       <span className="sr-only">Add list</span>+

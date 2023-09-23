@@ -42,3 +42,4 @@ All done
 22. Add thorough integration tests in a separate folder, but do not provide puppeteer as a dependency - it is too big
 23. Make sure the app resets even when the clock is running             DONE
 24. On mobile, clicking and double clicking doesn't work - so it is impossible to edit the tasks. Surprisingly, drag and drop works perfectly. 
+25. The 'x' button is the only ugly thing remaining. Do something about it.  

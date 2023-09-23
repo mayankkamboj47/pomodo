@@ -47,11 +47,12 @@ function TimeDisplay({
   dispatch: dispatchType;
 }) {
   return time === totalMins * 60 ? (
-    <div className="">
-      <label className="sr-only" htmlFor="clockTime">Time in minutes</label>
+    <div>
+      <label className="sr-only" htmlFor="clockTime" data-testid="clock-time">Time in minutes</label>
       <input
         type="number"
         name="clockTime"
+        data-testid="clock-time-input"
         className="w-11 text-2xl bg-blue-50"
         value={totalMins}
         min={1}
@@ -62,7 +63,7 @@ function TimeDisplay({
       minutes
     </div>
   ) : (
-    <div className="text-2xl font-bold">{clocktimeToString(time)}</div>
+    <div className="text-2xl font-bold" data-testid="time">{clocktimeToString(time)}</div>
   );
 }
 function clocktimeToString(clockTime: number) {
